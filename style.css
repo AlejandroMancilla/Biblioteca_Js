@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
 
 body {
     display: flex;
@@ -17,8 +18,8 @@ body {
   h2 {
     margin: 0 50px;
     padding: 0;
-    font-family: "Oswald", sans-serif;
-    font-size: 40px;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 50px;
     text-align: center;
   }
   
@@ -58,6 +59,7 @@ body {
         border-radius: 50px;
         width: 80%;
         justify-content: space-around;
+        align-items: center;
     }
     
     .topnav a {
