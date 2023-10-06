@@ -14,7 +14,29 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+main{
+    width: 100%;
+}
+
+#Books {
+    margin-top: 200px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0;
+}
+
+.card {
+    width: 20%;
+    height: 200px;
+    font-size: 10px;
+}
   
+.card img {
+    width: 100%;
+}
   h1,
   h2 {
     margin: 0 50px;
@@ -238,7 +260,7 @@ body {
     #login:before, #login:after {
         content: " ";
         display: block;
-        background: rgba(0,0,0,0.1);
+        background: rgba(132, 177, 219, 0.3);
         position: absolute;
         width: 100px;
         height: 30px;
@@ -263,7 +285,7 @@ body {
       }
 
       #login form h1 {
-        font-size: 24px;
+        font-size: 20px;
         text-transform: uppercase;
         margin-bottom: 20px;
       }
@@ -272,7 +294,7 @@ body {
         display: inline-block;
         content: " ";
         margin-right: 15px;
-        width: 70px;
+        width: 60px;
         height: 6px;
         border-top: 1px solid #333;
       }
@@ -280,7 +302,7 @@ body {
         display: inline-block;
         content: " ";
         margin-left: 15px;
-        width: 70px;
+        width: 60px;
         height: 6px;
         border-top: 1px solid #333;
       }

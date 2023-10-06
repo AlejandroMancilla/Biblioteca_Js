@@ -11,10 +11,10 @@
 <body>
     <!-- TopNav - Menu Responsive -->
     <div class="topnav" id="myTopnav">
-        <a href="#ModalAdd">New Book</a>
-        <a href="#ModalDelete">Delete Book</a>
+        <a href="#ModalAdd" id="btnAdd" >New Book</a>
+        <a href="#ModalDelete" id="btnDelete">Delete Book</a>
         <h1 class="Title">Library MP</h1>
-        <a href="#ModalReserve">Reserve</a>
+        <a href="#ModalReserve" id="btnReserve">Reserve</a>
         <a href="#ModalInfo">Info</a>
         <a href="javascript:void(0);" class="icon" onclick="CollapseMenu()">
             <i class="fa fa-bars"></i>
@@ -54,7 +54,9 @@
         <div class="modalbox resize">
             <a href="#close" title="Close" class="close">X</a>
             <h1>Delete Book</h1>
-            <p>List of Books + Button to Remove</p>
+            <div id="LstNames">
+
+            </div>
         </div>
     </div>
 
@@ -62,7 +64,9 @@
         <div class="modalbox resize">
             <a href="#close" title="Close" class="close">X</a>
             <h1>Reserve Book</h1>
-            <p>List of Books + Switch to Reserve</p>
+            <div id="LstReserve">
+                
+            </div>
         </div>
     </div>
 
@@ -75,7 +79,7 @@
     </div>
 
     <!-- Flex con Portadas de Libros -->
-    <div id="Books" class="Flex">
+    <div id="Main" class="Flex">
         <div id="OrderDiv">
             <h3>Order By:</h3>
             <button>Name</button>
@@ -83,6 +87,7 @@
             <button>Year</button>
             <button>availability</button>
         </div>
+        <div id="Books"></div>
     </div>
   
             
