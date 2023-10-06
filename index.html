@@ -9,22 +9,79 @@
 
 </head>
 <body>
+    <!-- TopNav - Menu Responsive -->
     <div class="topnav" id="myTopnav">
         <a href="#ModalAdd">New Book</a>
         <a href="#ModalDelete">Delete Book</a>
-        <h1>Library MP</h1>
+        <h1 class="Title">Library MP</h1>
         <a href="#ModalReserve">Reserve</a>
-        <a href="#ModalReserve">Info</a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <a href="#ModalInfo">Info</a>
+        <a href="javascript:void(0);" class="icon" onclick="CollapseMenu()">
             <i class="fa fa-bars"></i>
         </a>
     </div>
 
+    <!-- Modal Screen to each Bottom of the TopNav -->
     <div id="ModalAdd" class="modalmask">
         <div class="modalbox resize">
             <a href="#close" title="Close" class="close">X</a>
-            <h2>NEW BOOK</h2>
-            <p>Formulario con Datos necesarios para crear Libro</p>
+            <div id="login">
+                <form action="">
+                    <h1>NEW BOOK</h1>
+                    <input type="text" id="Cover" name="Book Cover" placeholder="Cover´s URL">
+                    <label for="Cover">Cover</label>
+                    <input type="text" id="TitleBook" name="Book Title" placeholder="Book´s Title">
+                    <label for="TitleBook">Title</label>
+                    <input type="text" id="Author" name="Book Author" placeholder="Book's Author">
+                    <label for="Author">Author</label>
+                    <input type="text" id="Year" name="Book Year" placeholder="Year of issue">
+                    <label for="Year">Year</label>
+                    <select name="Available" id="Available">
+                        <option value="True" selected>Available</option>
+                        <option value="False">Not Available</option>
+                    </select>
+                    <label for="Available">Status</label>
+                    <input type="text" id="Loan" name="LoanTo" placeholder="On loan to:">
+                    <label for="Loan">On loan To:</label>
+                    
+                    <button id="AddBook">Add To Library</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="ModalDelete" class="modalmask">
+        <div class="modalbox resize">
+            <a href="#close" title="Close" class="close">X</a>
+            <h1>Delete Book</h1>
+            <p>List of Books + Button to Remove</p>
+        </div>
+    </div>
+
+    <div id="ModalReserve" class="modalmask">
+        <div class="modalbox resize">
+            <a href="#close" title="Close" class="close">X</a>
+            <h1>Reserve Book</h1>
+            <p>List of Books + Switch to Reserve</p>
+        </div>
+    </div>
+
+    <div id="ModalInfo" class="modalmask">
+        <div class="modalbox resize">
+            <a href="#close" title="Close" class="close">X</a>
+            <h1>Library Info</h1>
+            <p>Information about Library</p>
+        </div>
+    </div>
+
+    <!-- Flex con Portadas de Libros -->
+    <div id="Books" class="Flex">
+        <div id="OrderDiv">
+            <h3>Order By:</h3>
+            <button>Name</button>
+            <button>Author</button>
+            <button>Year</button>
+            <button>availability</button>
         </div>
     </div>
   

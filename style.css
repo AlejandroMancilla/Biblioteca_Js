@@ -5,6 +5,7 @@
 
 body {
     display: flex;
+    flex-direction: column;
     margin: 0;
     padding: 0;
     background: linear-gradient(-45deg, #ffffff, #a3dcf4, #9fdaf0, #ffffff);
@@ -19,7 +20,7 @@ body {
     margin: 0 50px;
     padding: 0;
     font-family: 'Shadows Into Light', cursive;
-    font-size: 50px;
+    font-size: 4ch;
     text-align: center;
   }
   
@@ -74,8 +75,8 @@ body {
     }
 
     .topnav a:hover {
-        background-color: #ddd;
-        color: black;
+        background-color: #97ddd3;
+        color: rgb(0, 0, 0);
     }
 
     .topnav a.active {
@@ -145,7 +146,7 @@ body {
     }
 
     .resize {
-        margin: 10% auto;
+        margin: 5% auto;
         width:0;
         height:0;
     
@@ -159,8 +160,8 @@ body {
     }
     
     .modalmask:target .resize{
-        width:400px;
-        height:200px;
+        width:500px;
+        height:510px;
     }
 
 
@@ -177,22 +178,18 @@ body {
         }
     
         h1 {
-            margin: 10px 0px;
+            margin: 10px 30px;
         }
-    
-        .menu {
-            width: 20%;
-            align-items: center;
-            font-weight: bold;
-        }
-    
+        
         .topnav {
             width: 100%;
             border-radius: 0px;
             margin-left: 0;
+            justify-content: space-between;
+            margin-top: 0;
         }
     
-        .topnav a:not(:first-child) {
+        .topnav a {
             display: none;
         }
         
@@ -213,15 +210,11 @@ body {
             display: block;
             text-align: left;
         }
-    
-        header {
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-            height: 10%;
-            background-color: #00b3ff;
-            padding: 0px 0px;
+
+        .topnav.responsive h1 {
+            display: none;
         }
+    
     }
 
     @keyframes gradient {
@@ -235,3 +228,109 @@ body {
             background-position: 0% 50%;
         }
     }
+
+    /*Formulario Estilo */
+    #login {  
+        color: #333;
+        box-shadow: 0px 6px 8px rgba(0,0,0,0.5);
+    }
+
+    #login:before, #login:after {
+        content: " ";
+        display: block;
+        background: rgba(0,0,0,0.1);
+        position: absolute;
+        width: 100px;
+        height: 30px;
+      }
+
+      #login:before {
+        margin-top: -12px;
+        margin-left: -45px;
+        transform: rotate(-25deg);
+      }
+
+      #login:after {
+        margin-top: -480px;
+        margin-left: 430px;
+        transform: rotate(32deg);
+      }
+
+      #login form {
+        width: 70%;
+        margin: 40px auto;
+        text-align: center;
+      }
+
+      #login form h1 {
+        font-size: 24px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+      }
+
+      #login form h1:before {
+        display: inline-block;
+        content: " ";
+        margin-right: 15px;
+        width: 70px;
+        height: 6px;
+        border-top: 1px solid #333;
+      }
+      #login form h1:after {
+        display: inline-block;
+        content: " ";
+        margin-left: 15px;
+        width: 70px;
+        height: 6px;
+        border-top: 1px solid #333;
+      }
+
+      #login form input {
+        width: 100%;
+        height: 25px;
+        border-radius: 5px;
+        border: 1px solid #e1e1e1;
+        margin-bottom: 10px;
+        text-indent: 10px;
+        outline: none;
+        -webkit-transition: box-shadow 1s;
+        -moz-transition: box-shadow 1s;
+        -o-transition: box-shadow 1s;
+        transition: box-shadow 1s;
+      }
+
+      #login form input:focus {
+        box-shadow: 0px 0px 3px 1px #a2d7fc;
+      }
+
+      #login form button {
+        width: 100%;
+        height: 30px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        background: rgb(224,243,250);
+        background: linear-gradient(-45deg, #ffffff, #a3dcf4, #9fdaf0, #ffffff);
+        background-size: 200% 200%;
+        animation: gradient 10s ease infinite;
+        border: 1px solid #b6dffd;
+        color: black;
+        text-transform: uppercase;
+        box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.7);
+        text-shadow: 0px 1px 1px white;
+        font-size: 12px;
+      }
+      
+      #login form button:hover {
+        text-shadow: 0px 0px 1px gray;
+      }
+
+      #login form button:active {
+       background: rgb(162,215,252);
+       background: linear-gradient(-45deg, #7e7e7e, #575858, #414242, #7e7e7e);
+       color: #FFFFFF;
+       margin-top: 10px;
+       
+       box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.7) inset;
+      }
+      
