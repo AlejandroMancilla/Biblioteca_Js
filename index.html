@@ -26,7 +26,6 @@
         <div class="modalbox resize">
             <a href="#close" title="Close" class="close">X</a>
             <div id="login">
-                <form action="">
                     <h1>NEW BOOK</h1>
                     <input type="text" id="Cover" name="Book Cover" placeholder="Cover´s URL">
                     <label for="Cover">Cover</label>
@@ -34,7 +33,7 @@
                     <label for="TitleBook">Title</label>
                     <input type="text" id="Author" name="Book Author" placeholder="Book's Author">
                     <label for="Author">Author</label>
-                    <input type="text" id="Year" name="Book Year" placeholder="Year of issue">
+                    <input type="number" id="Year" name="Book Year" placeholder="Year of issue">
                     <label for="Year">Year</label>
                     <select name="Available" id="Available">
                         <option value="True" selected>Available</option>
@@ -45,7 +44,6 @@
                     <label for="Loan">On loan To:</label>
                     
                     <button id="AddBook">Add To Library</button>
-                </form>
             </div>
         </div>
     </div>
@@ -80,12 +78,12 @@
 
     <!-- Flex con Portadas de Libros -->
     <div id="Main" class="Flex">
-        <div id="OrderDiv">
+        <div id="OrderDiv" style="display: flex; flex-direction: row; width: 100%; justify-content: center;">
             <h3>Order By:</h3>
-            <button>Name</button>
-            <button>Author</button>
-            <button>Year</button>
-            <button>availability</button>
+            <button id="OrdName">Name</button>
+            <button id="OrdAuthor">Author</button>
+            <button id="OrdYear">Year</button>
+            <button id="OrdAvailable">Availability</button>
         </div>
         <div id="Books"></div>
     </div>
