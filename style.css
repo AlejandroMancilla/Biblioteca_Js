@@ -45,7 +45,7 @@ main {
 #sidebar {
     position: fixed;
     width: 500px;
-    height: 100%;
+    height: auto;
     background: rgb(233, 212, 187);
     border-right: 8px solid #43382c89;
     left: -500px;
@@ -55,6 +55,9 @@ main {
     flex-direction: column;
     align-items: center;
     padding: 0;
+    overflow-y: scroll;
+    top: 0;
+    bottom: 0;
 }
 
 #sidebar button {
@@ -325,7 +328,7 @@ color: #ff6600;
 /* Estilos Para Modal */
 .modalmask {
     position: fixed;
-    font-family: Arial, sans-serif;
+    font-family: 'Cinzel', serif;
     top: 0;
     right: 0;
     bottom: 0;
@@ -343,17 +346,15 @@ color: #ff6600;
     pointer-events: auto;
 }
 
-
 .modalbox{
     width: 400px;
     position: relative;
     padding: 5px 20px 13px 20px;
-    background: #fff;
     border-radius:3px;
     -webkit-transition: all 500ms ease-in;
     -moz-transition: all 500ms ease-in;
     transition: all 500ms ease-in;
-    
+    font-family: 'Cinzel', serif;
 }
 
 .close {
@@ -395,6 +396,199 @@ color: #ff6600;
     height:580px;
 }
 
+/*Modal Info Estilo*/
+#login2 {  
+    color: #333;
+    box-shadow: 0px 6px 8px rgba(0,0,0,0.5);
+    border-radius: 10px;
+    background: #7f6f5d;
+    width: 70%;
+    margin: 40px auto;
+    text-align: center;
+    padding: 20px 0;
+}
+
+#login2 h1 {
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    font-family: 'Cinzel', serif;
+    color: #FFFFFF;
+}
+
+#login2 p {
+    font-family: 'Brygada 1918', serif;
+    font-size: 20px;
+    color: #ffffff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+
+/*Modal NewBook Estilo */
+#login {  
+    color: #333;
+    box-shadow: 0px 6px 8px rgba(0,0,0,0.5);
+    border-radius: 10px;
+    background: #7f6f5d;
+    width: 70%;
+    margin: 40px auto;
+    text-align: center;
+    padding: 10px 0;
+}
+
+#login:before, #login:after {
+    content: " ";
+    display: block;
+    background: rgba(132, 177, 219, 0.3);
+    position: absolute;
+    width: 100px;
+    height: 30px;
+}
+
+#login:before {
+    margin-top: -12px;
+    margin-left: -45px;
+    transform: rotate(-25deg);
+}
+
+#login:after {
+    margin-top: -520px;
+    margin-left: 300px;
+    transform: rotate(32deg);
+}
+
+#login h1 {
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    font-family: 'Cinzel', serif;
+    color: #FFFFFF;
+}
+
+#login h1:before {
+    display: inline-block;
+    content: " ";
+    margin-right: 15px;
+    width: 30px;
+    height: 6px;
+    border-top: 1px solid #333;
+}
+#login h1:after {
+    display: inline-block;
+    content: " ";
+    margin-left: 15px;
+    width: 30px;
+    height: 6px;
+    border-top: 1px solid #333;
+}
+
+#login input, select{
+    width: 90%;
+    height: 25px;
+    border-radius: 5px;
+    border: 1px solid #e1e1e1;
+    margin-top: 15px;
+    margin-bottom: 0px;
+    text-indent: 10px;
+    outline: none;
+    transition: box-shadow 1s;
+}
+
+#login label {
+    color: #FFFFFF;
+}
+
+#login input:focus {
+    box-shadow: 0px 0px 3px 1px #a2d7fc;
+}
+
+#login button {
+    width: 90%;
+    height: 30px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    background: rgb(224,243,250);
+    background: linear-gradient(-45deg, #ffffff, #a3dcf4, #9fdaf0, #ffffff);
+    background-size: 200% 200%;
+    animation: gradient 10s ease infinite;
+    border: 1px solid #b6dffd;
+    color: black;
+    text-transform: uppercase;
+    box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.7);
+    text-shadow: 0px 1px 1px white;
+    font-size: 12px;
+}
+
+#login button:hover {
+    text-shadow: 0px 0px 1px gray;
+}
+
+#login button:active {
+    background: rgb(162,215,252);
+    background: linear-gradient(-45deg, #7e7e7e, #575858, #414242, #7e7e7e);
+    color: #FFFFFF;
+    margin-top: 10px;
+    
+    box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.7) inset;
+}
+
+
+/* FOOTER STYLE*/
+.footer-distributed{
+    background: rgb(176, 152, 125);
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+    width: 100%;
+    text-align: left;
+    padding: 55px 20px;
+  }
+  
+  .footer-distributed .footer-left,
+  .footer-distributed .footer-right{
+    display: inline-block;
+    vertical-align: top;
+  }
+  
+  .footer-distributed .footer-left{
+    width: 60%;
+  }
+  
+  .footer-distributed .footer-links{
+    color:  #ffffff;
+    margin: 10px 0 10px;
+    padding: 0;
+  }
+  
+  .footer-distributed .footer-company-name{
+    color:  #ffffff;
+    font-size: 22px;
+    font-weight: normal;
+    margin: 0;
+  }
+  
+  .footer-distributed .footer-right{
+    width: 35%;
+  }
+  
+  .footer-distributed .footer-company-about{
+    color:  #000000;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0;
+  }
+  
+  .footer-distributed .footer-company-about span{
+    display: block;
+    color:  #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  
 
 /* Responsive */
 @media (max-width: 800px) {
@@ -483,6 +677,14 @@ color: #ff6600;
 }
 
 @media (max-width: 600px) {
+    .modalbox{
+        width: 300px;
+    }
+
+    .modalmask:target .resize{
+        width:400px;
+        height:580px;
+    }
     .topnav img {
         width: 340px;
         margin: 10px ;
@@ -547,109 +749,3 @@ color: #ff6600;
     }
 }
 
-/*Formulario Estilo */
-#login {  
-        color: #333;
-        box-shadow: 0px 6px 8px rgba(0,0,0,0.5);
-        border-radius: 10px;
-}
-
-#login:before, #login:after {
-        content: " ";
-        display: block;
-        background: rgba(132, 177, 219, 0.3);
-        position: absolute;
-        width: 100px;
-        height: 30px;
-    }
-
-    #login:before {
-        margin-top: -12px;
-        margin-left: -45px;
-        transform: rotate(-25deg);
-    }
-
-    #login:after {
-        margin-top: -520px;
-        margin-left: 300px;
-        transform: rotate(32deg);
-    }
-
-    #login{
-        width: 70%;
-        margin: 40px auto;
-        text-align: center;
-    }
-
-    #login h1 {
-        font-size: 20px;
-        text-transform: uppercase;
-        margin-bottom: 20px;
-    }
-
-    #login h1:before {
-        display: inline-block;
-        content: " ";
-        margin-right: 15px;
-        width: 60px;
-        height: 6px;
-        border-top: 1px solid #333;
-    }
-    #login h1:after {
-        display: inline-block;
-        content: " ";
-        margin-left: 15px;
-        width: 60px;
-        height: 6px;
-        border-top: 1px solid #333;
-    }
-
-    #login input, select{
-        width: 90%;
-        height: 25px;
-        border-radius: 5px;
-        border: 1px solid #e1e1e1;
-        margin-top: 15px;
-        margin-bottom: 0px;
-        text-indent: 10px;
-        outline: none;
-        transition: box-shadow 1s;
-    }
-
-    #login input:focus {
-        box-shadow: 0px 0px 3px 1px #a2d7fc;
-    }
-
-    #login button {
-        width: 90%;
-        height: 30px;
-        margin-top: 10px;
-        margin-bottom: 20px;
-        border-radius: 5px;
-        background: rgb(224,243,250);
-        background: linear-gradient(-45deg, #ffffff, #a3dcf4, #9fdaf0, #ffffff);
-        background-size: 200% 200%;
-        animation: gradient 10s ease infinite;
-        border: 1px solid #b6dffd;
-        color: black;
-        text-transform: uppercase;
-        box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.7);
-        text-shadow: 0px 1px 1px white;
-        font-size: 12px;
-    }
-    
-    #login button:hover {
-        text-shadow: 0px 0px 1px gray;
-    }
-
-    #login button:active {
-        background: rgb(162,215,252);
-        background: linear-gradient(-45deg, #7e7e7e, #575858, #414242, #7e7e7e);
-        color: #FFFFFF;
-        margin-top: 10px;
-        
-        box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.7) inset;
-    }
-    
-
-    

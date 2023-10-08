@@ -214,21 +214,25 @@ document.body.onload = function() {
 
 function DeleteBook(N) {
   Books.splice(N, 1);
-  ListSide.classList = '';
   UpdateBooks();
+  UpdateTableDelete();
   localStorage.setItem('Libros', JSON.stringify(Books));
 };
 
 function ReserveBook(N){
   console.log(Books[N].Available);
   if(Books[N].Available == 'True'){
+    Books[N].Loan = window.prompt("Who is going to rent '" + Books[N].Title + "'?");
     Books[N].Available = 'False';
   }else{
-    Books[N].Available = 'True';
-    Books[N].Loan = '';
+    if(window.confirm("Are you sure to unreserve '" + Books[N].Title + "'?")){
+      Books[N].Available = 'True';
+      Books[N].Loan = '';
+    }
   }
   UpdateBooks();
   UpdateTableReserve();
+  localStorage.setItem('Libros', JSON.stringify(Books));
 };
 
 function UpdateTableDelete(){
@@ -278,7 +282,6 @@ function UpdateTableDelete(){
       var CeldaName = document.createElement('td');
       var TxtCelda = document.createTextNode(x.Title);
       Fila.addEventListener('click', function(){
-        console.log(Fila.id);
         DeleteBook(Fila.id);
       });
       var CeldaAuthor = document.createElement('td');
