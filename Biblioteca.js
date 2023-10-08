@@ -209,6 +209,15 @@ document.body.onload = function() {
       UpdateBooks();
   }else{
       Books = [];
+      let Book = {
+        Cover : "https://images.cdn1.buscalibre.com/fit-in/360x360/a6/18/a618be10eae5c2a608ec6e22e6917e29.jpg",
+        Title : "Don Quijote de la Mancha",
+        Author : "Miguel de Cervantes",
+        Year : "1605",
+        Available : "True",
+        Loan : ""
+      };
+      Boooks.push(Book);
   }
 };
 
