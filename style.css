@@ -84,6 +84,14 @@ main {
     text-align: center;
 }
 
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #FFFFFF;
+}
+
 table {
     border-collapse: collapse;
     margin: 20px 0;
