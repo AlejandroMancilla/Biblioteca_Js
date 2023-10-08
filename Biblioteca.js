@@ -217,7 +217,8 @@ document.body.onload = function() {
         Available : "True",
         Loan : ""
       };
-      Boooks.push(Book);
+      Books.push(Book);
+      UpdateBooks();
   }
 };
 
