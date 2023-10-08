@@ -14,54 +14,199 @@ const BtnOrdName = document.getElementById('OrdName');
 const BtnOrdAuthor = document.getElementById('OrdAuthor');
 const BtnOrdYear = document.getElementById('OrdYear');
 const BtnOrdAvailable = document.getElementById('OrdAvailable');
+const BtnOrdReverse = document.getElementById('OrdInverter');
+const ListSide = document.getElementById('sidebar');
+const CloseList = document.getElementById('CloseSideBar');
+const NameList = document.getElementById('NameList');
+const List = document.getElementById('Lista');
 
 var Books = [];
+var Order = 0;
 
 BtnAdd.addEventListener('click', function(){
-  let Book = {
-    Cover : BookCover.value,
-    Title : BookTitle.value,
-    Author : BookAuthor.value,
-    Year : BookYear.value,
-    Available : BookAvailable.value,
-    Loan : BookLoan.value
-  };
-  Books.push(Book);
-  UpdateBooks();
+  if(BookCover.value == '' || BookTitle.value == '' || BookAuthor.value == '' || BookYear.value == ''){
+    alert('Por favor, Ingrese todos los campos')
+  }else {
+    let Book = {
+      Cover : BookCover.value.trim(),
+      Title : BookTitle.value.trim(),
+      Author : BookAuthor.value.trim(),
+      Year : BookYear.value.trim(),
+      Available : BookAvailable.value,
+      Loan : BookLoan.value.trim()
+    };
+    Books.push(Book);
+    BookCover.value = '';
+    BookCover.value = '';
+    BookTitle.value = '';
+    BookAuthor.value = '';
+    BookYear.value = '';
+    BookLoan.value = '';
+    UpdateBooks();
+    localStorage.setItem('Libros', JSON.stringify(Books));
+  }
 });
 
 BtnDelete.addEventListener('click', function(){
+  ListSide.classList.toggle('active');
+  NameList.innerHTML = 'Delete Books';
+  const Tabla = document.createElement('table');
+  const TblHead = document.createElement('thead');
+  const TblBody = document.createElement('tbody');
+  var Encabezado = document.createElement('tr');
+  var Enc1 = document.createElement('th');
+  Enc1.style.width = '60%';
+  var TxtEnc1 = document.createTextNode('BOOK');
+  var Enc2 = document.createElement('th');
+  Enc2.style.width = '40%';
+  var TxtEnc2 = document.createTextNode('AUTHOR');
+  Enc1.appendChild(TxtEnc1);
+  Enc2.appendChild(TxtEnc2);
+  Encabezado.appendChild(Enc1);
+  Encabezado.appendChild(Enc2);
+  TblHead.appendChild(Encabezado);
 
+  var Cont = 0
+  OrderBy(1);        
+  Books.forEach(function(x) {
+      var Fila = document.createElement('tr');
+      Fila.id = Cont;
+      var CeldaName = document.createElement('td');
+      var TxtCelda = document.createTextNode(x.Title);
+      Fila.addEventListener('click', function(){
+        console.log(Fila.id);
+        DeleteBook(Fila.id);
+      });
+      var CeldaAuthor = document.createElement('td');
+      var TxtAuthor = document.createTextNode(x.Author);
+      CeldaName.appendChild(TxtCelda);
+      Fila.appendChild(CeldaName);
+      CeldaAuthor.appendChild(TxtAuthor);
+      Fila.appendChild(CeldaAuthor);
+      TblBody.appendChild(Fila);
+      Cont++;
+  });
+  Tabla.appendChild(TblHead);
+  Tabla.appendChild(TblBody);
+  Tabla.setAttribute('border', '2');
+  List.innerHTML = '';
+  List.appendChild(Tabla);
 });
 
 BtnReserve.addEventListener('click', function(){
-  
+  ListSide.classList.toggle('active');
+  NameList.innerHTML = 'Reserve Books';
+  const Tabla = document.createElement('table');
+  const TblHead = document.createElement('thead');
+  const TblBody = document.createElement('tbody');
+  var Encabezado = document.createElement('tr');
+  var Enc1 = document.createElement('th');
+  Enc1.style.width = '60%';
+  var TxtEnc1 = document.createTextNode('BOOK');
+  var Enc2 = document.createElement('th');
+  Enc2.style.width = '20%';
+  var TxtEnc2 = document.createTextNode('STATUS');
+  var Enc3 = document.createElement('th');
+  Enc3.style.width = '20%';
+  var TxtEnc3 = document.createTextNode('LOAN TO');
+  Enc1.appendChild(TxtEnc1);
+  Enc2.appendChild(TxtEnc2);
+  Enc3.appendChild(TxtEnc3);
+  Encabezado.appendChild(Enc1);
+  Encabezado.appendChild(Enc2);
+  Encabezado.appendChild(Enc3);
+  TblHead.appendChild(Encabezado);
+
+  var Cont = 0
+  OrderBy(4);
+  Books.reverse();        
+  Books.forEach(function(x) {
+      var Fila = document.createElement('tr');
+      Fila.id = Cont;
+      var CeldaName = document.createElement('td');
+      var TxtCelda = document.createTextNode(x.Title);
+      Fila.addEventListener('click', function(){
+        ReserveBook(Fila.id);
+      });
+      var CeldaStatus = document.createElement('td');
+      CeldaStatus.setAttribute('style', 'text-align : center');
+      if(x.Available == 'True') {
+        var TxtStatus = document.createTextNode('Available');
+        Fila.classList = 'RowGreen';
+      }else {
+        var TxtStatus = document.createTextNode('Loaned');
+        Fila.classList = 'RowRed';
+      }
+      var CeldaTaker = document.createElement('td');
+      CeldaTaker.setAttribute('style', 'text-align : center');
+      if(x.Loan == '') {
+        var TxtTaker = document.createTextNode('--');
+      }else {
+        var TxtTaker = document.createTextNode(x.Loan);
+      }
+
+
+      CeldaName.appendChild(TxtCelda);
+      Fila.appendChild(CeldaName);
+      CeldaStatus.appendChild(TxtStatus);
+      Fila.appendChild(CeldaStatus);
+      CeldaTaker.appendChild(TxtTaker);
+      Fila.appendChild(CeldaTaker);
+      TblBody.appendChild(Fila);
+      Cont++;
+  });
+  Tabla.appendChild(TblHead);
+  Tabla.appendChild(TblBody);
+  Tabla.setAttribute('border', '2');
+  List.innerHTML = '';
+  List.appendChild(Tabla);
 });
 
 BtnOrdName.addEventListener('click', function(){
-  Books.sort(function(x,y){
-    if(x.Title < y.Title){
-      return -1;
-    }else if(x.Title > y.Title){
-      return 1;
-    }else{
-      return 0;
-    }
-  });
+  OrderBy(1);
+  Order = 1;
+  localStorage.setItem('Order', Order);
   UpdateBooks();
 });
 
 BtnOrdAuthor.addEventListener('click', function(){
-
+  OrderBy(2);
+  Order = 2;
+  localStorage.setItem('Order', Order);
+  UpdateBooks();
 });
 
 BtnOrdYear.addEventListener('click', function(){
-
+  OrderBy(3);
+  Order = 3;
+  localStorage.setItem('Order', Order);
+  UpdateBooks();
 });
 
 BtnOrdAvailable.addEventListener('click', function(){
-
+  OrderBy(4);
+  Order = 4;
+  localStorage.setItem('Order', Order);
+  UpdateBooks();
 });
+
+BtnOrdReverse.addEventListener('click', function(){
+  Books.reverse();
+  UpdateBooks();
+})
+
+BookAvailable.addEventListener('change', function() {
+  console.log('Seleccion');
+  if (BookAvailable.value == "True") {
+    BookLoan.disabled = true;
+  } else {
+    BookLoan.disabled = false;
+  };
+});
+
+CloseList.addEventListener('click', function(){
+  ListSide.classList = '';
+})
 
 function CollapseMenu() {
     var x = document.getElementById("myTopnav");
@@ -79,9 +224,9 @@ function UpdateBooks(){
     NewCard.classList = "card";
     NewCard.id = x.Title;
     if(x.Available=='True'){
-      NewCard.setAttribute("style", "background-color:rgba(204,255,204,0.5);");
+      NewCard.setAttribute("style", "background-color:rgba(204,255,204,0.7);");
     }else{
-      NewCard.setAttribute("style", "background-color:rgba(255,204,204,0.5);");
+      NewCard.setAttribute("style", "background-color:rgba(255,204,204,0.7);");
     }
     const Portada = document.createElement('img');
     Portada.classList = "portada";
@@ -90,11 +235,83 @@ function UpdateBooks(){
     TitleText.innerHTML = x.Title;
     const AuthorText = document.createElement('h3');
     AuthorText.innerHTML = x.Author;
+    const YearText = document.createElement('h3');
+    YearText.innerHTML = x.Year;
     NewCard.appendChild(Portada);
     NewCard.appendChild(TitleText);
     NewCard.appendChild(AuthorText);
+    NewCard.appendChild(YearText);
     ShowBooks.appendChild(NewCard);
   });
 };
 
-Disponile.setAttribute('data-bs-target', '#modalNombre')
+function OrderBy(N){
+  switch (N) {
+    case 1:
+      Books.sort(function(x,y){
+        if(x.Title < y.Title){
+          return -1;
+        }else if(x.Title > y.Title){
+          return 1;
+        }else{
+          return 0;
+        }
+      });
+      break;
+    case 2:
+      Books.sort(function(x,y){
+        if(x.Author < y.Author){
+          return -1;
+        }else if(x.Author > y.Author){
+          return 1;
+        }else{
+          return 0;
+        }
+      });
+      break;
+    case 3:
+      Books.sort(function(x,y){
+        if(x.Year < y.Year){
+          return -1;
+        }else if(x.Year > y.Year){
+          return 1;
+        }else{
+          return 0;
+        }
+      });
+      break;
+    case 4:
+      Books.sort(function(x,y){
+        if(x.Available < y.Available){
+          return -1;
+        }else if(x.Available > y.Available){
+          return 1;
+        }else{
+          return 0;
+        }
+      });
+      break;
+  }
+}
+
+document.body.onload = function() {
+  Books = JSON.parse(localStorage.getItem('Libros'));
+  Order = JSON.parse(localStorage.getItem('Order'));
+  if(Books != null){
+      if(Order != null){
+        OrderBy(Order);
+      }
+      UpdateBooks();
+  }else{
+      Books = [];
+  }
+};
+
+function DeleteBook(N) {
+  Books.splice(N, 1);
+  ListSide.classList = '';
+  UpdateBooks();
+  localStorage.setItem('Libros', JSON.stringify(Books));
+};
+
+function ReserveBook(N){}

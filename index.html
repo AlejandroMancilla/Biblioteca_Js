@@ -9,11 +9,17 @@
 
 </head>
 <body>
-    <!-- TopNav - Menu Responsive -->
+    <div id="sidebar">
+        <button id="CloseSideBar">X</button>
+        <h2 id="NameList"></h2>
+        <div id="Lista"></div>
+    </div>
+    <main>
+        <!-- TopNav - Menu Responsive -->
     <div class="topnav" id="myTopnav">
         <a href="#ModalAdd" id="btnAdd" >New Book</a>
         <a href="#ModalDelete" id="btnDelete">Delete Book</a>
-        <h1 class="Title">Library MP</h1>
+        <img src="Logo.png" alt="Logo Library" class="Logo">
         <a href="#ModalReserve" id="btnReserve">Reserve</a>
         <a href="#ModalInfo">Info</a>
         <a href="javascript:void(0);" class="icon" onclick="CollapseMenu()">
@@ -40,7 +46,7 @@
                         <option value="False">Not Available</option>
                     </select>
                     <label for="Available">Status</label>
-                    <input type="text" id="Loan" name="LoanTo" placeholder="On loan to:">
+                    <input type="text" id="Loan" name="LoanTo" placeholder="On loan to:" disableb>
                     <label for="Loan">On loan To:</label>
                     
                     <button id="AddBook">Add To Library</button>
@@ -48,27 +54,7 @@
         </div>
     </div>
 
-    <div id="ModalDelete" class="modalmask">
-        <div class="modalbox resize">
-            <a href="#close" title="Close" class="close">X</a>
-            <h1>Delete Book</h1>
-            <div id="LstNames">
-
-            </div>
-        </div>
-    </div>
-
-    <div id="ModalReserve" class="modalmask">
-        <div class="modalbox resize">
-            <a href="#close" title="Close" class="close">X</a>
-            <h1>Reserve Book</h1>
-            <div id="LstReserve">
-                
-            </div>
-        </div>
-    </div>
-
-    <div id="ModalInfo" class="modalmask">
+        <div id="ModalInfo" class="modalmask">
         <div class="modalbox resize">
             <a href="#close" title="Close" class="close">X</a>
             <h1>Library Info</h1>
@@ -78,17 +64,19 @@
 
     <!-- Flex con Portadas de Libros -->
     <div id="Main" class="Flex">
-        <div id="OrderDiv" style="display: flex; flex-direction: row; width: 100%; justify-content: center;">
+        <div id="OrderDiv" style="display: flex; flex-direction: row; width: 100%; justify-content: center; margin-top: 10px;">
             <h3>Order By:</h3>
             <button id="OrdName">Name</button>
             <button id="OrdAuthor">Author</button>
             <button id="OrdYear">Year</button>
             <button id="OrdAvailable">Availability</button>
+            <button id="OrdInverter">Reverse Order</button>
         </div>
         <div id="Books"></div>
     </div>
-  
-            
+    </main>
+    
+
     <script src="Biblioteca.js"></script>
 </body>
 </html>
